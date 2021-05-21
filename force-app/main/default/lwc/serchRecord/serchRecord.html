@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Serch Box Account ">
+
+        <lightning-icon icon-name="standard:account" size="small"></lightning-icon> Account Records
+        <div class="slds-m-around_small">
+            <lightning-input name="enter-search" label="Search Account Records" type="search"
+                class="slds-m-bottom_small" value={accountName} onchange={handlerChnage}></lightning-input>
+        </div>
+        <table border="1" cellpadding="5" cellspacing="0" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered lwctablePad">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Rating</th>
+                    <th>Industry</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template if:true={accountList} for:each={accountList} for:item="acc" for:index="index">
+                    <tr key={acc.Id}>
+                        <td>{acc.Name}</td>
+                        <td>{acc.Rating}</td>
+                        <td>{acc.Industry}</td>
+                        <td>{acc.Website}</td>
+                    </tr>
+                </template>
+
+            </tbody>
+        </table>
+
+    </lightning-card>
+</template>

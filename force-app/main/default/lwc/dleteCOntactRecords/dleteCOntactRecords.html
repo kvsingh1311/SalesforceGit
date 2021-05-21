@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Dlete contact Records" icon-name="standard:contact">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+            <thead>
+                <tr>
+                    <th>RecordId</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <template if:true={allContact} for:each={allContact} for:item="con" for:index="index">
+                    <tr key={con.Id}>
+                        <td>{con.Id}</td>
+                        <td>{con.FirstName}</td>
+                        <td>{con.LastName}</td>
+                        <td>{con.Email}</td>
+                        <td>
+                            <lightning-button label="Delete"  icon-name="utility:delete" variant="brand"
+                                icon-position="right" value={con.Id} onclick={handleDelete}></lightning-button>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

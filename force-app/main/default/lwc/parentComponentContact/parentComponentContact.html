@@ -1,0 +1,31 @@
+<template>
+    <lightning-card titel="Parent Component Account And contact Both">
+<c-display-contact-on-Account-id onmyeventdemo={handleEventAction}></c-display-contact-on-Account-id>
+    </lightning-card>
+
+    <lightning-card title="All Related Contact Records" >
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={conRecord} for:item="items">
+                    <tr key={items.Id}>
+                
+                        <td>{items.FirstName}</td>
+                        <td>{items.LastName}</td>
+                        <td>{items.Phone}</td>
+                        <td>{items.Email}</td>
+                        <td>{items.Description}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+    </lightning-card>
+</template>

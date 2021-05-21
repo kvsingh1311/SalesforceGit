@@ -1,0 +1,29 @@
+<template>
+    <lightning-card title="Parent COmponent of Account">
+        <table>
+            <thead>
+                <tr>
+                    <th>SELECT</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Industry</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={accRecord} for:item="item">
+                    <tr key={item.Id}>
+                        <td>
+                            <lightning-input type="radio" value={item.Id} onchange={changeHandler}></lightning-input>
+                        </td>
+                        <td>{item.Name}</td>
+                        <td>{item.Phone}</td>
+                        <td>{item.Industry}</td>
+                        <td>{item.Description}</td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>
+
+    </lightning-card>
+</template>
